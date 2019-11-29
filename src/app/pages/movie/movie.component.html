@@ -1,0 +1,69 @@
+<form [formGroup]="movieForm" (ngSubmit)="onFormSubmit(movieForm)">
+<div style="width:100%; text-align: right"><button mat-raised-button type="submit"  color="primary">Save Movie</button></div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>
+        Add Movie
+      </mat-card-title>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row data">
+      <mat-form-field>
+        <input matInput
+               name="Title"
+               formControlName="title"
+               placeholder="Movie Title"
+               required>
+        <mat-error *ngIf="movieForm.get('title').hasError('required')">
+          Title is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!--<mat-form-field >
+        <input matInput name="release" formControlName="release" [matDatepicker]="daterelease" placeholder="Movie Release Date">
+        <mat-datepicker-toggle matSuffix [for]="daterelease"></mat-datepicker-toggle>
+        <mat-datepicker #fechasini></mat-datepicker>
+        <mat-error *ngIf="movieForm.get('release').hasError('required')">
+          Release Date is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>-->
+      <mat-form-field>
+        <input matInput name="release" formControlName="release" placeholder="Movie Release Date" [matDatepicker]="dp3" readonly>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <input
+          type="file"
+          name="image"
+          hidden
+          placeholder=""
+          (change)="onImage($event)"
+          #ImageInput
+        >
+        <button type="button" mat-raised-button color="primary" (click)="ImageInput.click()">
+          Add Movie Imagen
+        </button>
+        <img height="100px" *ngIf="movieForm.get('image').value" [src]="showImage(movieForm.get('image').value)">
+        <mat-error *ngIf="movieForm.get('image').hasError('required')">
+          Image is <strong>required</strong>
+        </mat-error>
+      </div>
+    </div>
+    <div class="row">
+      <mat-form-field >
+            <textarea matInput
+                      name="description"
+                      formControlName="description"
+                      placeholder="Movie Description"
+                      rows="5">
+            </textarea>
+        <mat-error *ngIf="movieForm.get('description').hasError('required')">
+          Description is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>
+</form>

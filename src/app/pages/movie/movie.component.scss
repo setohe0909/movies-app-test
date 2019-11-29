@@ -1,0 +1,51 @@
+mat-card {
+  margin: 10px;
+  padding: 0;
+  min-height: 55vh;
+  background-color: #f8f8f8;
+}
+
+mat-card mat-card-header {
+  width: 100%;
+  background-color: gainsboro;
+  height: 60px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+mat-card mat-card-header mat-card-title {
+  color: blue;
+  text-align: left;
+  width: 100%;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+mat-form-field{
+  width: 100%;
+  margin-right: 4vw;
+  margin-bottom: 100px;
+}
+
+.row {
+  width: 85vw;
+}
+
+.data {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 750px) {
+  .data {
+    flex-direction: column;
+  }
+  img {display: block}
+}
