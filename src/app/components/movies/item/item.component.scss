@@ -1,0 +1,32 @@
+:host {
+  mat-card {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: gainsboro;
+  }
+
+  mat-card mat-card-header {
+    text-align: left;
+    cursor: pointer;
+  }
+
+  mat-card mat-card-header mat-card-title {
+    color: blue;
+    text-align: left;
+    width: 100%;
+  }
+
+  ::ng-deep .mat-card-header-text {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  @media (max-width: 750px) {
+    mat-card mat-card-header mat-card-title {
+      font-size: 12px;
+    }
+    mat-card mat-card-content {
+      font-size: 10px;
+    }
+  }
+}
