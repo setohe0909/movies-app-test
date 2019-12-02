@@ -1,3 +1,3 @@
 <ng-container *ngFor="let movie of movies">
-  <app-movie-item [movie]="movie" (delMovie)="delMovie($event)"></app-movie-item>
+  <app-movie-item [movie]="movie" (remove)="remove($event)"></app-movie-item>
 </ng-container>

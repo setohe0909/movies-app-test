@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ApiService } from '../../services/api.service';
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MovieComponent implements OnInit {
   movieForm: FormGroup;
+
   constructor(
     private fb: FormBuilder,
     private sanitaizer: DomSanitizer,

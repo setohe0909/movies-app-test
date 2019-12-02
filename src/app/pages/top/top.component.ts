@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Movie } from '../../interfaces/movie';
 import { ApiService } from '../../services/api.service';
 
@@ -9,13 +10,12 @@ import { ApiService } from '../../services/api.service';
 })
 export class TopFiveComponent implements OnInit {
   movies: Movie[];
+
   constructor(private movieService: ApiService) {}
 
   ngOnInit() {
     this.getTopFive();
   }
 
-  async getTopFive() {
-    this.movies = await this.movieService.getTop();
-  }
+  getTopFive = async () => (this.movies = await this.movieService.getTop());
 }

@@ -15,31 +15,24 @@ export class ListMoviesComponent implements OnInit {
   constructor(private movieService: ApiService, private homeMovieSelected: HomeMovieSelected) {}
 
   ngOnInit() {
-    this.loadMovies();
+    this.load();
   }
 
-  async loadMovies() {
+  // one-liner methods
+  selectMovie = (movie: Movie) => this.homeMovieSelected.selectMovie(movie);
+
+  async load() {
     this.movies = this.movieService.List();
-    if (this.movies.length === 0) {
-      const mar = (await this.movieService.getTop()) as Movie[];
-      this.movies = mar;
-      console.log('movies', this.movies);
-    }
-    this.setFirstMovie();
-  }
 
-  setFirstMovie() {
-    if (this.movies.length > 0) {
+    if (this.movies.length === 0) {
+      this.movies = (await this.movieService.getTop()) as Movie[];
+    } else {
       this.selectMovie(this.movies[0]);
     }
   }
 
-  selectMovie(movie: Movie) {
-    this.homeMovieSelected.selectMovie(movie);
-  }
-
-  delMovie(title) {
+  delMovie(title: any) {
     this.movieService.remove(title);
-    this.loadMovies();
+    this.load();
   }
 }

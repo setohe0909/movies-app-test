@@ -1,17 +1,25 @@
 mat-card {
   margin: 10px;
   padding: 0;
+  width: 60%;
+  margin: 0 auto;
+  display: block;
   min-height: 55vh;
   background-color: #f8f8f8;
+  box-shadow: 7px 8px 25px #888885;
 }
 
 mat-card mat-card-header {
   width: 100%;
-  background-color: gainsboro;
+  box-shadow: 7px 8px 25px #888885;
+  background-color: #004c40;
   height: 60px;
   padding-top: 10px;
   display: flex;
   flex-direction: row;
+  mat-card-title {
+    color: #fff !important;
+  }
 }
 
 mat-card mat-card-header mat-card-title {
@@ -29,7 +37,7 @@ mat-card-content {
 }
 
 mat-form-field{
-  width: 100%;
+  width: 24%;
   margin-right: 4vw;
   margin-bottom: 100px;
 }
@@ -48,4 +56,11 @@ mat-form-field{
     flex-direction: column;
   }
   img {display: block}
+}
+
+.btn-action {
+  width: 80%;
+  top: -10px;
+  position: relative;
+  left: 93%;
 }

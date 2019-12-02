@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Movie } from '../../../interfaces/movie';
 import { HomeMovieSelected } from '../../../helper/observable/home.observable';
-import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -12,23 +12,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class InfoMovieComponent implements OnInit {
   movie: Movie;
 
-  constructor(private homeMovieSelected: HomeMovieSelected, private router: Router, private sanitaizer: DomSanitizer) {}
+  constructor(private homeMovieSelected: HomeMovieSelected, private sanitaizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.homeMovieSelected.cast.subscribe((m) => {
-      this.setMovie(m);
-    });
+    this.homeMovieSelected.cast.subscribe((m) => this.setMovie(m));
   }
 
-  setMovie(movie: Movie) {
-    this.movie = movie;
-  }
-
-  addMovie() {
-    this.router.navigate(['AddMovie']);
-  }
-
-  showImage(image) {
-    return image instanceof Object ? this.sanitaizer.bypassSecurityTrustResourceUrl(image) : image;
-  }
+  // one-liner methods
+  setMovie = (movie: Movie) => (this.movie = movie);
+  showImage = (image: any) => (image instanceof Object ? this.sanitaizer.bypassSecurityTrustResourceUrl(image) : image);
 }

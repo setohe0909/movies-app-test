@@ -1,7 +1,4 @@
 <form [formGroup]="movieForm" (ngSubmit)="onSubmit(movieForm)">
-  <div style="width:100%; text-align: right">
-    <button mat-raised-button type="submit" color="primary">Save Movie</button>
-  </div>
   <mat-card>
     <mat-card-header>
       <mat-card-title-group>
@@ -13,30 +10,30 @@
     <mat-card-content>
       <div class="row data">
         <mat-form-field>
-          <input matInput name="Title" formControlName="title" placeholder="Movie Title" required>
+          <input matInput name="Title" formControlName="title" placeholder="Title" required>
           <mat-error *ngIf="movieForm.get('title').hasError('required')">
             Title is <strong>required</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput name="release" formControlName="release" placeholder="Movie Release Date" [matDatepicker]="dp3" readonly>
+          <input matInput name="release" formControlName="release" placeholder="Release Date" [matDatepicker]="dp3" readonly>
           <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
           <mat-datepicker #dp3 disabled="false"></mat-datepicker>
         </mat-form-field>
         <div>
           <input type="file" name="image" hidden placeholder="" (change)="onImage($event)" #ImageInput>
           <button type="button" mat-raised-button color="primary" (click)="ImageInput.click()">
-          Add Movie Imagen
+          Add Imagen
           </button>
           <img height="100px" *ngIf="movieForm.get('image').value" [src]="showImg(movieForm.get('image').value)">
           <mat-error *ngIf="movieForm.get('image').hasError('required')">
-            It's <strong>required</strong>
+            Image is<strong>required</strong>
           </mat-error>
         </div>
       </div>
       <div class="row">
         <mat-form-field>
-          <textarea matInput name="description" rows="5" formControlName="description" placeholder="Movie Description">
+          <textarea matInput name="description" rows="5" formControlName="description" placeholder="Description">
                       </textarea>
           <mat-error *ngIf="movieForm.get('description').hasError('required')">
             Description is <strong>required</strong>
@@ -44,5 +41,8 @@
         </mat-form-field>
       </div>
     </mat-card-content>
+    <div class="btn-action">
+      <button mat-raised-button type="submit" color="primary">Save</button>
+    </div>
   </mat-card>
 </form>

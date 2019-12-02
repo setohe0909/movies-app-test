@@ -6,7 +6,8 @@
 }
 
 img {
-  height: 100px;
+  height: 120px;
+  border-radius: 10px;
 }
 
 .content {
@@ -15,6 +16,12 @@ img {
 
 mat-list-item {
   min-height: 150px;
+  background: #fff;
+  box-shadow: 7px -8px 35px #888885;
+  position: relative;
+  margin-bottom: 50px;
+  border: 2px dashed #0d0d0d;
+  border-radius: 30px;
 }
 
 mat-list h2 {
