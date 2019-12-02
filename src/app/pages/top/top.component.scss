@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  min-height: 600px !important;
+  height: 100%;
+}
+
+img {
+  height: 100px;
+}
+
+.content {
+  margin-left: 50px;
+}
+
+mat-list-item {
+  min-height: 150px;
+}
+
+mat-list h2 {
+  margin-bottom: 50px;
+}
+

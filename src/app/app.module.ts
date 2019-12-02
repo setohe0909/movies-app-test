@@ -13,6 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { HomeMovieSelected } from './helper/observable/home.observable';
+import { ApiService } from './services/api.service';
 import {
   MatGridListModule,
   MatCardModule,
@@ -31,6 +33,7 @@ import { MovieItemComponent } from './components/movies/item/item.component';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { TopFiveComponent } from './pages/top/top.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { MovieComponent } from './pages/movie/movie.component';
     LayoutComponent,
     HomeComponent,
     MovieComponent,
+    TopFiveComponent,
 
     ListMoviesComponent,
     InfoMovieComponent,
@@ -62,7 +66,7 @@ import { MovieComponent } from './pages/movie/movie.component';
     MatButtonModule,
     LayoutModule
   ],
-  providers: [],
+  providers: [HomeMovieSelected, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
