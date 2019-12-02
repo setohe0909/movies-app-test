@@ -18,16 +18,12 @@ export class ApiService {
   getByName = (title: string) => this.movies.find((m: any) => m.title.toUpperCase() === title.toUpperCase()) || {};
 
   getAll = (): Movie[] => {
-    let movies: Movie[] = LocalStorageUtils.getstorage('movies');
-    if (movies === null) {
-      movies = [];
-    }
-    return movies;
+    const movies: Movie[] = LocalStorageUtils.getstorage('movies');
+    return movies === null ? [] : movies;
   };
 
   save = (movie: Movie) => {
     this.indexMovie(movie);
-
     LocalStorageUtils.setStorage('movies', JSON.stringify(this.movies));
   };
 
@@ -43,19 +39,18 @@ export class ApiService {
 
   getTop = async () => {
     const objTop = await this.http.get('http://www.mocky.io/v2/5dc3c053300000540034757b').toPromise();
-
     return Object.values(objTop)[0];
   };
 
   remove = (title: string) => {
     const movies: Movie[] = this.getAll();
-    const delIndx = movies.findIndex((m) => m.title === title);
+    const indexMovie = movies.findIndex((m) => m.title === title);
 
-    if (delIndx >= 0) {
-      movies.splice(delIndx, 1);
+    if (indexMovie >= 0) {
+      movies.splice(indexMovie, 1);
     }
 
-    LocalStorageUtils.setStorage('movies', movies);
+    LocalStorageUtils.setStorage('movies', JSON.stringify(movies));
   };
 
   List = () => {

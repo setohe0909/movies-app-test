@@ -21,7 +21,7 @@ export class ListMoviesComponent implements OnInit {
   // one-liner methods
   selectMovie = (movie: Movie) => this.homeMovieSelected.selectMovie(movie);
 
-  async load() {
+  load = async () => {
     this.movies = this.movieService.List();
 
     if (this.movies.length === 0) {
@@ -29,7 +29,7 @@ export class ListMoviesComponent implements OnInit {
     } else {
       this.selectMovie(this.movies[0]);
     }
-  }
+  };
 
   delMovie(title: any) {
     this.movieService.remove(title);
