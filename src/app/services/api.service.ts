@@ -31,7 +31,7 @@ export class ApiService {
     } else {
       movies.push(movie);
     }
-    LocalStorageUtils.setStorage('movies', movies);
+    LocalStorageUtils.setStorage('movies', JSON.stringify(movies));
   };
 
   List = () => {
