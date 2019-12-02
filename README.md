@@ -22,6 +22,26 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Screens
+
+#### 1- Home
+
+ ![Screenshot](public/screens/1.png "home")
+
+#### 2- Add Movies
+
+ ![Screenshot](public/screens/2.png "movies")
+
+#### 3- Top 5
+
+ ![Screenshot](public/screens/3.png "top")
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## License
+
+[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+To the extent possible under law, [Seto](https://github.com/setohe0909) has waived all copyright and related or neighboring rights to this work.
